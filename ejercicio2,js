@@ -1,0 +1,36 @@
+const readline = require("readline");
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question("Ingrese el nombre del festejado: ", function(nombre){
+
+    rl.question("Ingrese el costo de la decoración: ", function(decoracion){
+
+        rl.question("Ingrese el costo del pastel: ", function(pastel){
+
+            rl.question("Ingrese el costo de la comida: ", function(comida){
+
+                rl.question("Ingrese el costo del entretenimiento: ", function(entretenimiento){
+
+                    decoracion = parseFloat(decoracion);
+                    pastel = parseFloat(pastel);
+                    comida = parseFloat(comida);
+                    entretenimiento = parseFloat(entretenimiento);
+
+                    let costoTotal = decoracion + pastel + comida + entretenimiento;
+                    let aportePadre = costoTotal / 2;
+
+                    console.log("\n----- RESULTADOS -----");
+                    console.log("Festejado: " + nombre);
+                    console.log("Costo total de la celebración: $" + costoTotal.toFixed(2));
+                    console.log("Aporte de cada padre: $" + aportePadre.toFixed(2));
+
+                    rl.close();
+                });
+            });
+        });
+    });
+});
